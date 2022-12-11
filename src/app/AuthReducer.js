@@ -4,9 +4,13 @@ const authSlice = createSlice({
     name: "auth",
     initialState: {
         user: null,
-        videos: null
+        videos: [],
+        modal: false
     },
     reducers: {
+        setModal: (state) => {
+            state.modal = !state.modal
+        },
         setUser: (state, action) => {
             state.user = action.payload
         },
@@ -16,6 +20,6 @@ const authSlice = createSlice({
     },
 })
 
-export const { setUser, setVideos } = authSlice.actions
+export const { setUser, setVideos, setModal } = authSlice.actions
 
 export default authSlice.reducer

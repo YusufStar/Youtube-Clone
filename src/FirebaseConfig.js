@@ -1,6 +1,7 @@
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { getAuth } from "firebase/auth";
 import { getDatabase } from "firebase/database"
+import { getStorage } from "firebase/storage"
 import { initializeApp } from "firebase/app";
 import "firebase/firestore"
 
@@ -17,6 +18,7 @@ const firebaseConfig = {
 const provider = new GoogleAuthProvider()
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const storage = getStorage(app);
 const database = getDatabase(app)
 
 const GoogleLogin = async() => {
@@ -32,4 +34,4 @@ const GoogleLogin = async() => {
     });
 }
 
-export {GoogleLogin, auth, database}
+export {GoogleLogin, auth, database, storage}
